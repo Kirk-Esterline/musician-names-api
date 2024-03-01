@@ -4,3 +4,5 @@ node_modules
 
 # Ignore vscode configureations
 .vscode
+
+# MongoDB connection: //Mongodb password: FxViYSOIP6BfHHIY
