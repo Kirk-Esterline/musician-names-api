@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Side API Code</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <h1>Rap Names API</h1>
+    <h1>Musician Names API</h1>
     <p>Please use https://tame-lime-binturong-suit.cyclic.app/musician-name to access the 'musicians' object.</p>
-    <input type="text">
-    <button>Get Info</button>
-    <h2>Result:</h2>
-
+    <form action="/musicians" method="POST">
+        <input type="text" placeholder="Stage Name" name="stageName">
+        <input type="text" placeholder="Birth Name" name="birthName">
+        <input type="number" name="age">
+        <button type="submit">Submit</button>
+    </form>
     <script src='/js/main.js'></script>
 </body>
 </html>
