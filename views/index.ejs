@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Side API Code</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1>Musician Names API</h1>
+    <p>I am currently working through updating the database and server that support this project. As of March 1st 2024 I do not expect this project to work correctly for the next few days. I anticipate this upgrade taking less than a week to complete.</p>
+    <form action="/musicians" method="POST">
+        <input type="text" placeholder="Stage Name" name="stageName">
+        <input type="text" placeholder="Birth Name" name="birthName">
+        <input type="number" name="age">
+        <button type="submit">Submit</button>
+    </form>
+    <section>
+        <h2>Results:</h2>
+        <ul class="musicians">
+            <% for(var i = 0; i < musicians.length; i++) {%>
+            <li class="musician">
+                <span><%= musicians[i].stageName %></span>: <br>
+                <span>Birth Name: <%= musicians[i].birthName %></span>,
+                <span>Age: <%= musicians[i].age %></span>
+            </li>
+            <%} %>
+        </ul>
+    </section>
+    
+    <script src='/js/main.js'></script>
+</body>
+</html>

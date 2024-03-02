@@ -5,6 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
+app.set('view engine', 'ejs')
 app.use(cors())
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -29,11 +30,12 @@ MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgk
                 .find()
                 .toArray()
                 .then(results => {
-                    console.log(results)
+                    res.render('index.ejs', { musicians: results })
                 })
-                .catch(error => console.error(error))
+            .catch(error => console.error(error))
         })
-    })
+                
+        })
     .catch(error => console.error(error))
 
 
