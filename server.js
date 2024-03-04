@@ -9,6 +9,7 @@ app.set('view engine', 'ejs')
 app.use(cors())
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgkw14k.mongodb.net/?retryWrites=true&w=majority&appName=Musicians2')
     .then(client => {
@@ -34,8 +35,12 @@ MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgk
                 })
             .catch(error => console.error(error))
         })
-                
+        
+        app.put('/musicians', (req,res) => {
+            console.log(req.body)
         })
+        })
+
     .catch(error => console.error(error))
 
 
