@@ -19,7 +19,7 @@ MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgk
         
         app.post('/musicians', (req,res) => {
             musiciansCollection
-                .insertOne(req.body)
+                .insertOne({stageName: req.body.stageName, birthName: req.body.birthName, age: req.body.age, likes: 0})
                 .then(result => {
                     res.redirect('/')
                 })
@@ -38,34 +38,26 @@ MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgk
         
         app.put('/musicians', (req,res) => {
             console.log(req.body)
+            musiciansCollection
+                .findOneAndUpdate(
+                    { stageName: req.body.currentStageName},
+                    {
+                        $set: {
+                            stageName: req.body.updatedStageName,
+                            birthName: req.body.updatedBirthName,
+                            age: req.body.updatedAge,
+                        }
+                    },
+                    {
+                        upsert: false,
+                    })
+                .then(result => {
+                    console.log(result)
+                })
+                .catch(error => console.error(error))
         })
-        })
-
+    })
     .catch(error => console.error(error))
-
-
-const rappers = {
-    "21 savage": {
-        'age':29,
-        'birthname':'Sheyaa Bin Abraham-Joseph',
-        'birthlocation': 'London, England',
-    },
-    "chance the rapper": {
-        'age':29,
-        'birthname':'Chancelor Bennett',
-        'birthlocation': 'Chicago, Illinois',
-    },
-    "dylon": {
-        'age':29,
-        'birthname':'Dylon',
-        'birthlocation': 'Dylon, Dylon',
-    },
-    "unknown": {
-        'age': 0,
-        'birthname': 'unknown',
-        'birthlocation': 'unknown',
-    }
-}
 
 app.get('/api/:rapperName', (req, res) => {
     console.log(req.body)

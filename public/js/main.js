@@ -10,7 +10,9 @@ updateButton.addEventListener('click', _ => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             currentStageName: currentStageName,
-            StageName: updatedStageName
+            updatedStageName: updatedStageName ? updatedStageName : null,
+            updatedBirthName: updatedBirthName ? updatedBirthName : null,
+            updatedAge: updatedAge ? updatedAge : null
         })
     })
 })
