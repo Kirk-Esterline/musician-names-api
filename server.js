@@ -1,9 +1,9 @@
+const MongoClient = require('mongodb').MongoClient
 const express = require('express')
 const app = express()
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient
 
 app.set('view engine', 'ejs')
 app.use(cors())
@@ -69,6 +69,6 @@ MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgk
 //     // }
 // })
 
-app.listen(process.env.PORT || PORT ,() =>{
+app.listen(PORT ,() =>{
     console.log(`The server is running on port ${PORT}! You better go catch it...`)
 })
