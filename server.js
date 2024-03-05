@@ -59,16 +59,16 @@ MongoClient.connect('mongodb+srv://kirkesterline:FxViYSOIP6BfHHIY@musicians2.qgk
     })
     .catch(error => console.error(error))
 
-app.get('/api/:rapperName', (req, res) => {
-    console.log(req.body)
-    // const rappersName = req.params.rapperName.toLowerCase()
-    // if(rappers[rappersName]){
-    //     res.json(rappers[rappersName])
-    // } else {
-    //     res.json(rappers['unknown'])
-    // }
-})
+// app.get('/api/:rapperName', (req, res) => {
+//     console.log(req.body)
+//     // const rappersName = req.params.rapperName.toLowerCase()
+//     // if(rappers[rappersName]){
+//     //     res.json(rappers[rappersName])
+//     // } else {
+//     //     res.json(rappers['unknown'])
+//     // }
+// })
 
-app.listen(process.env.PORT, () =>{
+app.listen(process.env.PORT || PORT ,() =>{
     console.log(`The server is running on port ${PORT}! You better go catch it...`)
 })
