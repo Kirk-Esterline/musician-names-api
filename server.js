@@ -57,15 +57,13 @@ app.use(bodyParser.json())
             })
             .catch(error => console.error(error))
     })
-    
-    // .catch(error => console.error(error))
 
 client.connect(err => {
     if(err){console.error(err); return false;}
     
-    console.log('Connected to Database')
+    // console.log('Connected to Database')
     
-    app.listen(PORT ,() =>{
+    app.listen(PORT,() =>{
         console.log(`The server is running on port ${PORT}! You better go catch it...`)
     })
 })
