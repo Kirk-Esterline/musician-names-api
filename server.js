@@ -58,7 +58,7 @@ app.use(bodyParser.json())
             .catch(error => console.error(error))
     })
     
-    .catch(error => console.error(error))
+    // .catch(error => console.error(error))
 
 client.connect(err => {
     if(err){console.error(err); return false;}
