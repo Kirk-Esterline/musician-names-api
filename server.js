@@ -29,7 +29,7 @@ app.use(bodyParser.json())
     })
 
     app.get('/', (req, res) => {
-        db.collection('musicians')
+        musiciansCollection
             .find()
             .toArray()
             .then(results => {
