@@ -3,9 +3,10 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
+require('dotenv').config()
 
 const PORT = process.env.PORT || 8000
-const uri = process.env.MONGO_DB_URI;
+const uri = process.env.MONGO_DB_STRING;
 const client = new MongoClient(uri)
 const db = client.db('Musicians2')
 const musiciansCollection = db.collection('musicians')
