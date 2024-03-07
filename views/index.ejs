@@ -7,8 +7,13 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <h1>Musician Names API</h1>
-    <p>I am currently working through updating the database and server that support this project. As of March 1st 2024 I do not expect this project to work correctly for the next few days. I anticipate this upgrade taking less than a week to complete.</p>
+    <h1>Musician Names Database</h1>
+    
+    <div class="alert">
+        <h2>Attention</h2>
+        <p>I am currently working through updating the database and server which support this project. As of March 7th 2024 the add and update functionalities are working. However the voting and deleting functionalities are still a work in progess. I anticipate these upgrades taking less than a week to complete.</p>
+    </div>
+    
     <h2>Add a new Musician to the Database</h2>
     <form action="/musicians" method="POST">
         <input type="text" placeholder="Stage Name" name="stageName">
@@ -16,12 +21,17 @@
         <input type="number" name="age">
         <button type="submit">Add New</button>
     </form>
+    
     <h2>Update a Musicians information</h2>
-    <input type="text" placeholder="Current Stage Name" name="currentStageName" id="currentStageName"required>
-    <input type="text" placeholder="Updated Stage Name" name="updatedStageName" id="updatedStageName">
-    <input type="text" placeholder="Updated Birth Name" name="updatedBirthName" id="updatedBirthName">
-    <input type="number" placeholder="Updated age" name="updatedAge" id="updatedAge">
-    <button id="update-button">Update Info</button>
+    
+    <div class="update">
+        <input type="text" placeholder="Current Stage Name" name="currentStageName" id="currentStageName"required>
+        <input type="text" placeholder="Updated Stage Name" name="updatedStageName" id="updatedStageName">
+        <input type="text" placeholder="Updated Birth Name" name="updatedBirthName" id="updatedBirthName">
+        <input type="number" placeholder="Updated age" name="updatedAge" id="updatedAge">
+        <button id="update-button">Update Info</button>
+    </div>
+    
     <section>
         <h2>All Musicians:</h2>
         <ul class="musicians">
