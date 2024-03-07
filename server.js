@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb')
+const MongoClient = require('mongodb').MongoClient
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -7,9 +7,9 @@ require('dotenv').config()
 
 const PORT = process.env.PORT || 8000
 const uri = process.env.MONGO_DB_STRING;
-const client = new MongoClient(uri)
-const db = client.db('Musicians2')
-const musiciansCollection = db.collection('musicians')
+
+let db 
+let musiciansCollection
 
 app.set('view engine', 'ejs')
 app.use(cors())
@@ -59,10 +59,14 @@ app.use(bodyParser.json())
             .catch(error => console.error(error))
     })
 
-client.connect(err => {
-    if(err){console.error(err); return false;}
+MongoClient.connect(uri)
+    .then(client => {
+        console.log(`Connected to Database`)
+        db = client.db('Musicians2')
+        musiciansCollection  = db.collection('musicians')
+    })
     app.listen(PORT,() => {
         console.log(`The server is running on port ${PORT}! You better go catch it...`)
     })
-})
+
     
