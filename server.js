@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient
+const { MongoClient } = require('mongodb')
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -60,10 +60,7 @@ app.use(bodyParser.json())
 
 client.connect(err => {
     if(err){console.error(err); return false;}
-    
-    // console.log('Connected to Database')
-    
-    app.listen(PORT,() =>{
+    app.listen(PORT,() => {
         console.log(`The server is running on port ${PORT}! You better go catch it...`)
     })
 })
