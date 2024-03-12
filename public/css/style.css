@@ -16,6 +16,11 @@ p {
     padding: 0 5%;
 }
 
+ul {
+    border: 2px solid black;
+    padding: 0 35% 0 35%;
+}
+
 .alert {
     border: 3px solid black;
     background: #c2c2c2;
