@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1,h2,p,form, .update {
+h1,h2,p:not(.musician-info),form, .update {
     text-align: center;
 }
 
@@ -17,8 +17,7 @@ p {
 }
 
 ul {
-    border: 2px solid black;
-    padding: 0 35% 0 35%;
+    padding: 0 30% 0 35%;
 }
 
 .alert {
@@ -27,3 +26,7 @@ ul {
     margin: 0 20%;
 }
 
+.stage-name {
+    font-size: x-large;
+    text-decoration: underline;
+}

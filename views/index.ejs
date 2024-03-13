@@ -37,15 +37,12 @@
         <ul class="musicians">
             <% for(var i = 0; i < musicians.length; i++) {%>
             <li class="musician">
-                <span><%= musicians[i].stageName %></span>: 
+                <span class="stage-name"><%= musicians[i].stageName %></span>: 
                 <span>Likes: <%= musicians[i].likes %></span>
                 <span class="like">Like</span>
                 <span class="Dislike">Dislike</span>
-                <span class="delete">Delete</span><br>
-                <span>Birth Name: <%= musicians[i].birthName %></span>,
-                <span>Age: <%= musicians[i].age %></span>
-                
-                
+                <span class="delete">Delete</span>
+                <p class="musician-info">Birth Name: <%= musicians[i].birthName %> Age: <%= musicians[i].age %></p>
             </li>
             <%} %>
         </ul>

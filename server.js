@@ -59,6 +59,27 @@ app.use(bodyParser.json())
             .catch(error => console.error(error))
     })
 
+    app.put('/addOneLike', (req, res) => {
+        console.log(req.body)
+        stageName = req.body.stageName
+        musiciansCollection
+            .findOneAndUpdate(
+                { stageName: req.body.stageName},
+                {
+                    $inc: {
+                        likes: 1
+                    }
+                },
+                {
+                    upsert: false,
+                })
+                .then(result => {
+                    console.log(`Like added to ${stageName}`)
+                    res.json(`Like added to ${stageName}`)
+                })
+                .catch(error => console.error(error))
+    })
+
 MongoClient.connect(uri)
     .then(client => {
         console.log(`Connected to Database`)
