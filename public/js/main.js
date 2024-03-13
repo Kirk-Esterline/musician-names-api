@@ -1,11 +1,19 @@
 const updateButton = document.querySelector('#update-button')
 let likeOne = document.getElementsByClassName('like')
-const dislikeOne = document.querySelector('.dislike')
-const deletOne = document.querySelector('delete')
+let dislikeOne = document.getElementsByClassName('dislike')
+const deleteOne = document.getElementsByClassName('delete')
 
 Array.from(likeOne).forEach((element) =>{
     element.addEventListener('click', addOneLike)
 })
+
+Array.from(dislikeOne).forEach(element => {
+    element.addEventListener('click', removeOneLike)
+})
+
+// Array.from(deleteOne).forEach(element => {
+//     element.addEventListener('click', deleteMusician)
+// })
 
 let currentStageName = document.querySelector('#currentStageName').value
 let updatedStageName = document.querySelector('#updatedStageName').value
@@ -42,4 +50,19 @@ async function addOneLike() {
     catch(err){
         console.error(err)
     }
+}
+
+async function removeOneLike() {
+    const sName = this.parentNode.childNodes[1].innerText
+    try {
+        const response = await fetch('removeOneLike', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({'stageName': sName})
+        })
+        const data = await response.json
+        console.log(data)
+        location.reload()
+    }
+    catch(err){console.error(err)}
 }

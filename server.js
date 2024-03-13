@@ -80,6 +80,27 @@ app.use(bodyParser.json())
                 .catch(error => console.error(error))
     })
 
+    app.put('/removeOneLike', (req, res) => {
+        console.log(req.body)
+        stageName = req.body.stageName
+        musiciansCollection
+            .findOneAndUpdate(
+                { stageName: req.body.stageName},
+                {
+                    $inc: {
+                        likes: -1
+                    }
+                },
+                {
+                    upsert: false,
+                })
+                .then(result => {
+                    console.log(`Like removed from ${stageName}`)
+                    res.json(`Like removed from ${stageName}`)
+                })
+                .catch(error => console.error(error))
+    })
+
 MongoClient.connect(uri)
     .then(client => {
         console.log(`Connected to Database`)
