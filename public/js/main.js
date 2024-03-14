@@ -11,9 +11,9 @@ Array.from(dislikeOne).forEach(element => {
     element.addEventListener('click', removeOneLike)
 })
 
-// Array.from(deleteOne).forEach(element => {
-//     element.addEventListener('click', deleteMusician)
-// })
+Array.from(deleteOne).forEach(element => {
+    element.addEventListener('click', deleteMusician)
+})
 
 let currentStageName = document.querySelector('#currentStageName').value
 let updatedStageName = document.querySelector('#updatedStageName').value
@@ -62,6 +62,21 @@ async function removeOneLike() {
         })
         const data = await response.json
         console.log(data)
+        location.reload()
+    }
+    catch(err){console.error(err)}
+}
+
+async function deleteMusician() {
+    const sName = this.parentNode.childNodes[1].innerText
+    try {
+        const response = await fetch('deleteMusician', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({'stageName': sName})
+        })
+        const data = await response.json
+        alert('Musician was deleted!')
         location.reload()
     }
     catch(err){console.error(err)}

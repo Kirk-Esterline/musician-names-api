@@ -101,6 +101,20 @@ app.use(bodyParser.json())
                 .catch(error => console.error(error))
     })
 
+    app.delete('/deleteMusician', (req, res) => {
+        console.log(req.body)
+        stageName = req.body.stageName
+        musiciansCollection
+            .deleteOne(
+                { stageName: req.body.stageName }
+            )
+            .then(result => {
+                console.log(`${stageName} was deleted`)
+                res.send(`${stageName} was deleted`)
+            })
+            .catch(error => console.error(error))
+    })
+
 MongoClient.connect(uri)
     .then(client => {
         console.log(`Connected to Database`)
