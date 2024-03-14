@@ -2,8 +2,8 @@ const updateButton = document.querySelector('#update-button')
 let likeOne = document.getElementsByClassName('like')
 let dislikeOne = document.getElementsByClassName('dislike')
 const deleteOne = document.getElementsByClassName('delete')
-let sortAscend = document.querySelector('#sortA').addEventListener('click', sortA)
-let sortDescend = document.querySelector('#sortD').addEventListener('click', sortD)
+// let sortAscend = document.querySelector('#sortA').addEventListener('click', sortA)
+// let sortDescend = document.querySelector('#sortD').addEventListener('click', sortD)
 
 let currentStageName = document.querySelector('#currentStageName').value
 let updatedStageName = document.querySelector('#updatedStageName').value
