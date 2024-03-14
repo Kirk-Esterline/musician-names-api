@@ -2,6 +2,13 @@ const updateButton = document.querySelector('#update-button')
 let likeOne = document.getElementsByClassName('like')
 let dislikeOne = document.getElementsByClassName('dislike')
 const deleteOne = document.getElementsByClassName('delete')
+let sortAscend = document.querySelector('#sortA').addEventListener('click', sortA)
+let sortDescend = document.querySelector('#sortD').addEventListener('click', sortD)
+
+let currentStageName = document.querySelector('#currentStageName').value
+let updatedStageName = document.querySelector('#updatedStageName').value
+let updatedBirthName = document.querySelector('#updatedBirthName').value
+let updatedAge = document.querySelector('#updatedAge').value
 
 Array.from(likeOne).forEach((element) =>{
     element.addEventListener('click', addOneLike)
@@ -15,10 +22,31 @@ Array.from(deleteOne).forEach(element => {
     element.addEventListener('click', deleteMusician)
 })
 
-let currentStageName = document.querySelector('#currentStageName').value
-let updatedStageName = document.querySelector('#updatedStageName').value
-let updatedBirthName = document.querySelector('#updatedBirthName').value
-let updatedAge = document.querySelector('#updatedAge').value
+async function sortA() {
+    try {
+        const response = await fetch('sortA', {
+            method: 'get',
+        })
+        const data = await response.json
+        console.log(data)
+        // location.reload()
+        alert('reload A')
+    }
+    catch(error){console.error(error)}
+}
+
+async function sortD() {
+    try {
+        const response = await fetch('sortD', {
+            method: 'get',
+        })
+        const data = await response.json
+        console.log(data)
+        // location.reload()
+        alert('reload D')
+    }
+    catch(error){console.error(error)}
+}
 
 updateButton.addEventListener('click', _ => {
     fetch('/musicians', {

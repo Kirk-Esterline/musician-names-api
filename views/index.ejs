@@ -11,7 +11,7 @@
     
     <div class="alert">
         <h2>Attention</h2>
-        <p>I am currently working through updating the database and server which support this project. As of March 7th 2024 the add and update functionalities are working. However the voting and deleting functionalities are still a work in progess. I anticipate these upgrades taking less than a week to complete.</p>
+        <p>As of March 14th 2024 this database is working as it should. The default value is for musicians to be sorted in Descending order based on likes. The voting buttons are functional and the page will automatically reload based on the inputs from the voting buttons.</p>
     </div>
     
     <h2>Add a new Musician to the Database</h2>
@@ -24,7 +24,7 @@
     
     <h2>Update a Musicians information</h2>
     
-    <div class="update">
+    <div class="centerContent">
         <input type="text" placeholder="Current Stage Name" name="currentStageName" id="currentStageName"required>
         <input type="text" placeholder="Updated Stage Name" name="updatedStageName" id="updatedStageName">
         <input type="text" placeholder="Updated Birth Name" name="updatedBirthName" id="updatedBirthName">
@@ -34,14 +34,18 @@
     
     <section>
         <h2>All Musicians:</h2>
+        <!-- <div class="centerContent">
+            <button id="sortA">Sort Ascending</button>
+            <button id="sortD">Sort Descending</button>
+        </div> -->
         <ul class="musicians">
             <% for(var i = 0; i < musicians.length; i++) {%>
             <li class="musician">
                 <span class="stage-name"><%= musicians[i].stageName %></span>: 
-                <span>Likes: <%= musicians[i].likes %></span>
-                <span class="like">Like</span>
-                <span class="dislike">Dislike</span>
-                <span class="delete">Delete</span>
+                <span class="likesCount">Likes: <%= musicians[i].likes %></span>
+                <span class="like button">Like</span>
+                <span class="dislike button">Dislike</span>
+                <span class="delete button">Delete</span>
                 <p class="musician-info">Birth Name: <%= musicians[i].birthName %> Age: <%= musicians[i].age %></p>
             </li>
             <%} %>

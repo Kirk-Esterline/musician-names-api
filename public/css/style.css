@@ -1,9 +1,9 @@
 body {
-    background: lightgreen;
+    background: lightcyan;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1,h2,p:not(.musician-info),form, .update {
+h1,h2,p:not(.musician-info),form, .centerContent {
     text-align: center;
 }
 
@@ -22,11 +22,41 @@ ul {
 
 .alert {
     border: 3px solid black;
-    background: #c2c2c2;
+    background: lightgreen;
     margin: 0 20%;
 }
+
+/* Styling the ul and button styles */
 
 .stage-name {
     font-size: x-large;
     text-decoration: underline;
+}
+
+.likesCount { 
+    font-size: large;
+    padding: 1% 1%;
+}
+
+.button {
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: .75% .75%;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.like {
+    background: lightgreen;
+}
+
+.dislike {
+    background: mediumblue;
+    color: #f2f2f2
+}
+
+.delete {
+    background: crimson;
 }

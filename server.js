@@ -31,9 +31,34 @@ app.use(bodyParser.json())
     app.get('/', (req, res) => {
         musiciansCollection
             .find()
+            .sort({'likes': -1})
             .toArray()
             .then(results => {
                 res.render('index.ejs', { musicians: results })
+            })
+        .catch(error => console.error(error))
+    })
+
+    app.get('/sortA', (req, res) => {
+        musiciansCollection
+            .find()
+            .sort({'likes': 1})
+            .toArray()
+            .then(resultA => {
+                console.log(resultA)
+                // res.render('index.ejs', { musicians: resultA})
+            })
+        .catch(error => console.error(error))
+    })
+
+    app.get('/sortD', (req, res) => {
+        musiciansCollection
+            .find()
+            .sort({'likes': -1})
+            .toArray()
+            .then(resultD => {
+                // res.render('index.ejs', {musicians: resultD})
+                console.log(resultD)
             })
         .catch(error => console.error(error))
     })
