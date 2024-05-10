@@ -39,6 +39,8 @@
   <p align="center">
     A place to store and remember musicians stage names and birth names
     <br />
+    This project is currently not live anywhere. Previously it had been hosted on cyclic.sh, but since cyclic is sadly shutting down this project needs to find a new home. As of May, 10th 2024 that home has not been found yet. 
+    <br />
     <a href="https://github.com/Kirk-Esterline/musician-names-api"><strong>Explore the docs »</strong></a>
     <br />
     <br />
